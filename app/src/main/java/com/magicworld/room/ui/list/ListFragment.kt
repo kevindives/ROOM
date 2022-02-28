@@ -36,10 +36,9 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mUserViewModel.readAllData()
 
-        mUserViewModel.onUserLoaded.observe(viewLifecycleOwner){result->
-            onUserLoadedSubscribe(result)
+        mUserViewModel.readAllData.observe(viewLifecycleOwner){ result->
+            onReadAllDataSubscribe(result)
         }
         listAdapter = ListAdapter(listUser, onItemClicked = {onUserClicked(it)})
         listBinding.recyclerView.apply {
@@ -53,9 +52,9 @@ class ListFragment : Fragment() {
         }
     }
 
-    private fun onUserLoadedSubscribe(result: MutableList<User>?) {
+    private fun onReadAllDataSubscribe(result: List<User>?) {
         result?.let { listAdapterList->
-            listAdapter.appendItems(listAdapterList)
+            listAdapter.appendItems(listAdapterList as MutableList<User>)
         }
     }
 

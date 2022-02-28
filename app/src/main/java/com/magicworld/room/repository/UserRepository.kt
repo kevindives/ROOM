@@ -1,5 +1,6 @@
 package com.magicworld.room.repository
 
+import androidx.lifecycle.LiveData
 import com.magicworld.room.ROOM
 import com.magicworld.room.data.UserDao
 import com.magicworld.room.model.User
@@ -8,14 +9,10 @@ class UserRepository{
 
     private val userDao: UserDao = ROOM.database.userDao()
 
+    val readAllData:LiveData<List<User>> = userDao.reaAllData()
+
     suspend fun addUser(user: User){
-
         userDao.addUser(user)
-    }
-
-    fun readAllData():MutableList<User> {
-
-        return userDao.reaAllData()
     }
 
     suspend fun updateUser(updateUser: User) {

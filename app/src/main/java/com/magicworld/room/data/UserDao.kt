@@ -1,5 +1,6 @@
 package com.magicworld.room.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.magicworld.room.model.User
 
@@ -18,5 +19,5 @@ interface UserDao {
     suspend fun deleteAllUser()
 
     @Query("SELECT * FROM user_table ORDER BY id ASC")
-    fun reaAllData():MutableList<User>
+    fun reaAllData():LiveData<List<User>>
 }
