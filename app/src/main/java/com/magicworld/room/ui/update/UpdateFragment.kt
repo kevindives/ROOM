@@ -28,14 +28,21 @@ class UpdateFragment : Fragment() {
         return updateFragment.root
 
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu,menu)
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete){
+            deleteUser()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
+
         val user = args.currentUser
         with(updateFragment){
             updateFirstnameTil.setText(user.firstName)
@@ -67,17 +74,6 @@ class UpdateFragment : Fragment() {
             }
 
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu,menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_delete){
-            deleteUser()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun deleteUser() {

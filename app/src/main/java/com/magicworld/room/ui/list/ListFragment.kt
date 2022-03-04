@@ -28,14 +28,20 @@ class ListFragment : Fragment() {
         return listBinding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete){
+            deleteAllUser()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setHasOptionsMenu(true)
 
         mUserViewModel.readAllData.observe(viewLifecycleOwner){ result->
             onReadAllDataSubscribe(result)
@@ -60,16 +66,6 @@ class ListFragment : Fragment() {
 
     private fun onUserClicked(user: User) {
         findNavController().navigate(ListFragmentDirections.actionListFragmentToUpdateFragment(currentUser = user))
-    }
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu,menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_delete){
-            deleteAllUser()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun deleteAllUser() {
