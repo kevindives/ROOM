@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "926314003732",
+    "project_id": "room-f1d04",
+    "storage_bucket": "room-f1d04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926314003732:android:2f83dbc5f40e51d6151601",
+        "android_client_info": {
+          "package_name": "com.magicworld.room"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926314003732-p9oc0lbhip0058gls6o9capv8mimckvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe-eE0myDRs6EsOi3t4qDMU_C-GYXCM2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926314003732-p9oc0lbhip0058gls6o9capv8mimckvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

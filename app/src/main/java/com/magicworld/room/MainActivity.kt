@@ -17,4 +17,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragmentContainerView)
         return navController.navigateUp() ||return super.onSupportNavigateUp()
     }
+    fun showIcon(){
+        val actionBar: androidx.appcompat.app.ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+    fun hideIcon(){
+        val actionBar : androidx.appcompat.app.ActionBar? = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+    }
 }

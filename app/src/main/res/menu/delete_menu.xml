@@ -8,4 +8,10 @@
         android:icon="@drawable/ic_baseline_delete_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white" />
+    <item
+        android:id="@+id/sign_out"
+        android:title="signout"
+        android:icon="@drawable/ic_login"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white" />
 </menu>

@@ -41,6 +41,7 @@ class ListAdapter (
         private var agetxt: TextView = itemView.findViewById(R.id.age_txt)
 
         fun bind(user: User) {
+
             idtxt.text = user.id.toString()
             firstNametxt.text = user.firstName
             lastNametxt.text = user.lastName

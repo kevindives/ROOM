@@ -8,8 +8,8 @@ import java.io.Serializable
 @Entity(tableName = "user_table")
 data class User (
     @PrimaryKey(autoGenerate = true)
-    val id : Int,
-    val firstName : String,
-    val lastName : String,
-    val age : Int
+    val id : Int = 0,
+    val firstName : String = "",
+    val lastName : String = "",
+    val age : Int = 0
         ):Serializable

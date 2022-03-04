@@ -11,6 +11,11 @@ class UserViewModel:ViewModel() {
     private val userRepository = UserRepository()
     val readAllData : LiveData<List<User>> = userRepository.readAllData
 
+    private var getDataFromFirebase: MutableLiveData<ArrayList<User>> = MutableLiveData()
+    val onGetDataFromFirebase: LiveData<ArrayList<User>> = getDataFromFirebase
+
+    private var checkUserLoggedIn: MutableLiveData<Boolean> = MutableLiveData()
+    val onCheckUserLooggedIn: LiveData<Boolean> = checkUserLoggedIn
 
     fun addUser(user: User){
         viewModelScope.launch(Dispatchers.IO) {
@@ -32,6 +37,17 @@ class UserViewModel:ViewModel() {
     fun deleteAllUser() {
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.deleteAllUser()
+        }
+    }
+
+    fun checkUserLoggedIn() {
+        viewModelScope.launch(Dispatchers.IO) {
+            checkUserLoggedIn.postValue(userRepository.checkUserLoggedIn())
+        }
+    }
+    fun getDataFromFirebase() {
+        viewModelScope.launch(Dispatchers.IO) {
+            getDataFromFirebase.postValue(userRepository.getDataFromFirebase())
         }
     }
 
